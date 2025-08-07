@@ -89,3 +89,30 @@ if __name__ == "__main__":
         {"id": 3, "name": "Charlie"}
     ]
     print("Search student by name 'Bob' at index:", linear_search_in_dict(students, "name", "Bob"))  # Output: 1
+
+
+
+"""
+1. arr: List[str] (in the function parameter)
+This is a type hint (using Python's typing module).
+It tells the developer, static checkers (like mypy), or IDEs that:
+
+“The arr parameter is expected to be a list of strings.”
+
+But here's the catch:
+✅ Type hints are not enforced at runtime.
+You can still pass a list with mixed types (e.g., [1, "hello", True]) and the code would run unless you manually check types.
+
+2. isinstance(string, str) (inside the loop)
+This is a runtime safety check.
+
+It ensures that each element you're about to call .lower() on is actually a str before calling that method.
+
+Otherwise, if someone accidentally passes in a list like this:
+
+python
+Copy
+Edit
+arr = ["Hello", 42, None, "World"]
+and you try to run 42.lower() or None.lower() → 💥 runtime error!
+"""
