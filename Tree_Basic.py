@@ -1,3 +1,5 @@
+# A simple tree where a node can have any number of childs
+
 class TreeNode:
     def __init__(self, value) -> None:
         self.value = value 
