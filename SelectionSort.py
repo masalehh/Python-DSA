@@ -25,8 +25,8 @@ def selection_sort_algo(arr: List[T]) -> List[T]:
         - O(1) (in-place sorting)
 
     Example:
-        >>> selection_sort([64, 25, 12, 22, 11])
-        [11, 12, 22, 25, 64]
+        >>> selection_sort([64, 11, 25, 109, 90, 12, 37, 22, 11, 90])
+        [11, 11, 12, 22, 25, 37, 64, 90, 90, 109]
     """
 
     n = len(arr)
