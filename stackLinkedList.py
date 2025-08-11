@@ -56,6 +56,9 @@ class Stack:
     
     def __repr__(self):
         """Return a string representation of the stack from top to bottom."""
+        if self.size() == 0:
+            return "Stack is Empty so nothing to print"
+        
         nodes = [] 
         current = self._head
         while current:
@@ -79,6 +82,7 @@ if __name__ == "__main__":
     # Pop remaining elements
     stack.pop()                     # Popped: 20
     stack.pop()                     # Popped: 10
+    print(stack)
     
     # Uncommenting the next line will raise an error
     # stack.pop()
