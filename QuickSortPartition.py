@@ -1,13 +1,22 @@
 from typing import List, Any 
 
 def partition(arr: List[int], low: int, high: int) -> int:
+    """
+    Partition function (Lomuto scheme).
+    Chooses the last element as pivot, places it at correct
+    position, and arranges smaller elements to the left,
+    larger to the right.
+    """
     pivot = arr[high]
-    i = low-1 
+    i = low-1   # index of smaller element
     
     for j in range(low, high):
         if arr[j] <= pivot:
             i += 1 
-            arr[i], arr[j] = arr[j], arr[i] 
+            arr[i], arr[j] = arr[j], arr[i]     # swap
+            
+    
+    # Place pivot in correct position
     arr[i+1], arr[high] = arr[high], arr[i+1] 
     return i+1 
 
