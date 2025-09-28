@@ -19,9 +19,9 @@ def counting_sort(arr:List[int]) -> List[int]:
     Returns:
         List[int]: Sorted list of integers.
     """
-    if not arr:         # Edge case: empty input
+    if not arr:                 # Edge case: empty input
         return [] 
-    if len(arr) == 1:
+    if len(arr) == 1:           # Edge case: only one element 
         return arr 
     
     # Find the min and max to handle negative numbers
@@ -37,7 +37,7 @@ def counting_sort(arr:List[int]) -> List[int]:
     for num in arr:
         count[num-min_value] += 1 
         
-    print(count)
+   
     # Step 3: Convert count array to prefix sum (for stable sort)
     for i in range(1, len(count)):
         count[i] += count[i - 1]
@@ -51,10 +51,20 @@ def counting_sort(arr:List[int]) -> List[int]:
     return output
 
 
+
 # Example usage:
 if __name__ == "__main__":
     data = [4, 2, -1, 3, 2, 1, 4]
     print("Original:", data)
     sorted_data = counting_sort(data)
     print("Sorted:", sorted_data)
+    
+    data_2 = [10]
+    sorted_data = counting_sort(data_2)
+    print("Sorted_2: ", sorted_data) 
+    
+    data_3 = []
+    sorted_data = counting_sort(data_3)
+    print("Sorted_3: ", sorted_data) 
+    
     

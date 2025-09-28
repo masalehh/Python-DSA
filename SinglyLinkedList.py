@@ -6,7 +6,7 @@ class Node:
 
 class SinglyLinkedList:
     def __init__(self):
-        self.head = None 
+        self.head = None        
         
         
     #Traverse and Print the linked list 
@@ -36,7 +36,7 @@ class SinglyLinkedList:
         
         new_node.next = currentNode.next
         currentNode.next = new_node
-        print(f"{value} inserted at index: {index}")
+        print(f"{value} inserted at index: {index}") 
         
         
     # Remove an element from singly link list given by index 
@@ -58,6 +58,7 @@ class SinglyLinkedList:
             
         if not currentNode.next:
             raise IndexError("Index out of bounds")
+        
         removedNode = currentNode.next 
         currentNode.next = currentNode.next.next 
         print(f"{removedNode.value} removed from the list")

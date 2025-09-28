@@ -75,5 +75,9 @@ if __name__ == "__main__":
     for val in [10, 20, 30, 40, 50, 25]:
         avl_root = avl.insert(avl_root, val)
     print("AVL root:", avl_root.value)
+    
+    
+    
+#End of AVL Tree 
                                
             

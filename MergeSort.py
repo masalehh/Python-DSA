@@ -1,6 +1,6 @@
-from typing import List, TypeVar
+from typing import List, TypeVar, Any
 
-T = TypeVar('T')
+T = TypeVar('T', bound=Any)
 
 def merge_sort(arr: List[T]) -> List[T]:
     """
