@@ -56,6 +56,7 @@ class DoublyLinList_upgrde:
             new_node.next = current_node.next 
             new_node.prev = current_node
             current_node.next = new_node
+            new_node.next.prev = new_node
             self.size += 1 
               
         else:
@@ -136,6 +137,40 @@ class DoublyLinList_upgrde:
         return -1  
 
 
+    #------ Efficiently search value in linked list, writing by me ------------
+    def search_optimized(self, value):
+        # Start searching from the head (first node)
+        search_value_index = 0
+
+        # ✅ Step 1: Check if the head node contains the target value
+        if self.head.value == value:
+            return search_value_index  # Found at index 0 (head position)
+
+        # ✅ Step 2: Check if the tail node contains the target value
+        # This avoids unnecessary traversal if the value is at the end.
+        elif self.tail.value == value:
+            return self.size - 1  # Tail is always at index (size - 1)
+
+        else:
+            # ✅ Step 3: Search in the middle nodes only
+            # Since head and tail are already checked, we start from head.next
+            search_value_index = 1
+            current_node = self.head.next
+
+            # Loop until the node before the tail (since tail is already checked)
+            while current_node.next:
+                # If the current node's value matches, return its position
+                if current_node.value == value:
+                    return search_value_index
+
+                # Move to the next node and increment index counter
+                current_node = current_node.next
+                search_value_index += 1
+
+            # ✅ Step 4: If not found in any node, return -1 as "not found" signal
+            return -1
+
+
     def to_list(self):
         return [node for node in self] 
 
@@ -196,3 +231,4 @@ print(list(reversed(dll)))  # [30, 20, 15, 10]
 
 print("Length:", len(dll))  # 4
 print("Search 20:", dll.search(20))  # 2
+print("Optimized Search 15 at index: ", dll.search_optimized(15)) 
