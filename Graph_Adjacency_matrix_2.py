@@ -1,35 +1,42 @@
 class AdjacencyMatrix:
     def __init__(self, directed=False) -> None:
-        self.vertics = [] 
-        self.index = {}
-        self.matrix = []
         self.directed = directed 
+        self.vertix = [] 
+        self.index = {} 
+        self.matrix = []  
         
     def _add_vertix(self, v):
-        if v not in self.index:
-            self.index[v] = len(self.vertics)
-            self.vertics.append(v) 
-            
+        if v not in self.vertix:
+            self.index[v] = len(self.vertix)  
+            self.vertix.append(v)
             for row in self.matrix:
                 row.append(0) 
-                
-            self.matrix.append([0] * len(self.vertics))
+            self.matrix.append([0] * len(self.vertix))
+               
             
     def add_edge(self, u, v, weight=1):
-        self._add_vertix(u)
-        self._add_vertix(v)
+        self._add_vertix(u) 
+        self._add_vertix(v) 
         
         i, j = self.index[u], self.index[v]
         self.matrix[i][j] = weight
         if not self.directed:
-            self.matrix[j][i] = weight 
-            
+            self.matrix[j][i] = weight
+          
+    def remove_edge(self, u, v):
+        if u in self.index and v in self.index:
+            i, j = self.index[u], self.index[v]
+            self.matrix[i][j] = 0
+            if not self.directed:
+                self.matrix[j][i] = 0
+        # If vertices don't exist, do nothing
+        
             
     def display(self):
-        print("\nAdjacency Matrix:")
-        print("   ", *self.vertics)
+        print("   ", *self.vertix)
         for i, row in enumerate(self.matrix):
-            print(f"{self.vertics[i]} ", row) 
+            print(f"{self.vertix[i]} {row}") 
+            
             
 
 graph_type = input("Directed graph? (y/n): ").lower()
@@ -46,5 +53,5 @@ while True:
     except ValueError:
         print("Invalid format, use: A to B")
         
-        
+graph.remove_edge('A', 'B')        
 graph.display() 

@@ -34,6 +34,7 @@ class Graph:
         if not self.directed:
             self.adj[v].append((u, weight))
 
+
     def nodes(self) -> List[Any]:
         """
         Get all nodes in the graph.
