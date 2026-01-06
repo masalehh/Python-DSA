@@ -21,7 +21,39 @@ def has_cycle_directed(graph):
                 return True 
     return False 
 
-"""
-A -> B -> C -> D -> B->E->F
 
 """
+Graph with cycle 
+{
+  A: [B],
+  B: [C],
+  C: [A]
+}
+
+A → B → C → D        A : [B, C, D]
+      ↑     |        B : [C, D]
+      └─────┘        C : [D]
+                     D : [B]
+
+Graph with no cycle 
+graph = {
+    'A': ['B'],
+    'B': ['C'],
+    'C': []
+}
+
+one brach has cycle and another branch not 
+A → B → C
+↓
+D → E → D   (cycle)
+graph = {
+    'A': ['B', 'D'],
+    'B': ['C'],
+    'C': [],
+    'D': ['E'],
+    'E': ['D']
+}
+
+
+"""
+

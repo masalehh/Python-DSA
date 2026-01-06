@@ -15,20 +15,23 @@ def num_islands(grid: list[list[int]]):
         ):
             return 
         
-        visited.add((r, c)) 
+        visited.add((r, c))     # function come to this point if it is 1 and we marked it as visited 
         
-        dfs(r+1, c)
-        dfs(r-1, c)
-        dfs(r, c+1)
-        dfs(r, c-1)
+        # from this point check all 4 directions if any connected land or 1 
+        dfs(r+1, c)     # Down 
+        dfs(r-1, c)     # Up 
+        dfs(r, c+1)     # Right 
+        dfs(r, c-1)     # Left 
+        
         
     count = 0 
     for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == '1' and (r, c) not in visited:
-                dfs(r, c)
-                count += 1 
-    return count 
+        for c in range(cols):   # started visiting from (0,0) and complete visiting row by row 
+            # if any coordinate not 0 not starting dfs or previous visited 
+            if grid[r][c] == '1' and (r, c) not in visited: 
+                dfs(r, c)       # call dfs  
+                count += 1      # if this coordinate has atleast a 1 then its must be an island so increase the count 
+    return count                # finally return the count means number of islands 
 
 
 
