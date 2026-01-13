@@ -31,6 +31,7 @@ def level_order(root):
                 queue.append(node.right) 
                 
         result.append(level)
+        
     return result 
 
 """
@@ -70,5 +71,18 @@ Any one of these = rejection risk.
   [4, 5]
 ]
 
+example: 2 
+
+            1
+           / \
+          2   3
+         / \ / \
+        4  5 6  7
+
+[
+  [1],
+  [2, 3],
+  [4, 5, 6, 7]
+]
 
 """
