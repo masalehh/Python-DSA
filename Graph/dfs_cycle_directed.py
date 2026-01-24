@@ -54,6 +54,23 @@ graph = {
     'E': ['D']
 }
 
+Interview-grade takeaway
 
+“visited prevents reprocessing nodes, but path detects back-edges, which define cycles in directed graphs.”
+
+Time & space complexity
+
+Time: O(V + E)
+Space: O(V)
+
+===Edge Cases=== 
+Interview answer
+
+“Disconnected graphs are handled because we run DFS from every unvisited node.”
+
+Interview answer
+
+“A self-loop is a cycle by definition, and it’s detected because the node appears in the recursion stack.”
+“A single node with no outgoing edges cannot form a cycle, so the algorithm correctly returns false.”
 """
 
