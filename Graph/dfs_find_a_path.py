@@ -3,6 +3,9 @@ from typing import List, Dict, Set, TypeVar
 T = TypeVar('T')
 
 def has_path(graph: Dict[T, List[T]], src: T, dst: T) -> bool:
+    if src not in graph:
+        return False 
+    
     visited: Set[T] = set() 
     
     def dfs(node: T) -> bool:
