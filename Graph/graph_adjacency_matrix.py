@@ -27,7 +27,6 @@ class AdjacencyMatrixGraph:
         if weight == 0:
             raise ValueError("Weight cannot be 0 (rederved for no edge)")
         
-        self.matrix[u][v] = weight 
         
         self._set_edge(u, v, weight)
       
