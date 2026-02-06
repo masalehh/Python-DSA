@@ -19,6 +19,10 @@ class MinHeap:
                 
                 
 """
+“After insertion, the heap was already valid except possibly at the edge between the new node 
+and its parent. If the immediate parent satisfies the heap property, then by transitivity 
+all ancestors also satisfy it, so no further checks are required.”
+
 Visual Representation of Insertion to a Heap
 Let’s visualize step-by-step insertion using the exact logic of your code (append → heapify_up).
 Assume we insert the numbers in this order:
