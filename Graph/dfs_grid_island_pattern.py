@@ -39,4 +39,18 @@ def num_islands(grid: list[list[int]]):
 1 1 0
 0 1 0
 1 0 1
+
+Interview one-liner 🎯
+
+“The outer loop is necessary because DFS only covers one connected component; separate islands must be discovered by scanning the entire grid.”
+Tiny summary
+
+DFS = explore one island
+
+Double loop = find all islands
+
+Separate land ⇒ separate DFS ⇒ increment count
+
+Time complexity: O(R x C)
+Space complexity: O(R x C)
 """

@@ -16,12 +16,13 @@ def preorder_iterative(root):
         node = stack.pop() 
         result.append(node.value)
         
-        if node.right:                  # Right must be processed after left, thats why we pusdhed right to stack first 
+        if node.right:                  # Right must be processed after left, thats why we pushed right to stack first 
             stack.append(node.right)
             
         if node.left:
             stack.append(node.left)     # left must be processed before right thats why we pushed it last as stack follows LIFO 
     return result 
+
 
 """
       1

@@ -112,6 +112,7 @@ class BST:
         elif value > self.value and self.right:
             return self.right.search(value)
         return False 
+    
 
 class AVLNode:
     """AVL Tree Node: Stores height for balancing."""
@@ -184,6 +185,7 @@ class AVLTree:
         return self.get_height(root.left) - self.get_height(root.right) if root else 0 
     
     
+    
 # ------------------------------
 # 5. N-ary Tree
 # ------------------------------
@@ -198,6 +200,7 @@ class NaryNode:
         """Adds child at a specific index."""
         if 0 <= index < len(self.children):
             self.children[index] = child_node 
+        
         
         
 # ------------------------------
@@ -236,6 +239,7 @@ class Trie:
             node = node.children[char]
         return node.is_end_of_word 
             
+
 
 # ------------------------------
 # Example Usage

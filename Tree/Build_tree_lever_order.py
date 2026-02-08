@@ -23,6 +23,7 @@ def build_tree(values):
             node.left = TreeNode(values[i]) 
             queue.append(node.left) 
         i += 1 
+        
         if i < len(values) and values[i] is not None:
             node.right = TreeNode(values[i])
             queue.append(node.right) 
@@ -52,5 +53,9 @@ while queue and i < len(values):
 There are nodes waiting to get children
 
 We still have values to process
+
+🔹 One-Line Summary (Interview Ready)
+
+This function constructs a binary tree from a level-order array using BFS, where None represents missing nodes.
 
 """
