@@ -1,13 +1,15 @@
 # Binary Search Tree 
+from typing import Optional 
+
 
 class BSTNode:
     """Binary Search Tree Node: Left < Root < Right."""
-    def __init__(self, value) -> None:
+    def __init__(self, value: int) -> None:
         self.value = value 
-        self.left = None 
-        self.right = None 
+        self.left: Optional[BSTNode] = None 
+        self.right: Optional[BSTNode] = None 
         
-    def insert(self, value):
+    def insert(self, value: int):
         """Inserts a value into the BST."""
         if value < self.value:
             if self.left:
@@ -21,7 +23,7 @@ class BSTNode:
                 self.right = BSTNode(value)
                 
     
-    def search_BST(self, value):
+    def search_BST(self, value: int) -> bool:
         """Searches for a value in BST."""
         if value == self.value:
             return True 
@@ -46,5 +48,61 @@ print(root.search_BST(7))  # True
 print(root.search_BST(20)) # False 
     
 
+"""
+For insert():
+
+Time Complexity
+
+At each step, you compare the value and move either left or right.
+
+Best case: O(1)
+If the tree has only one node and you insert directly.
+Average case (balanced BST): O(log n)
+Height of a balanced BST is about log n.
+Worst case (skewed BST): O(n)
+If nodes are inserted in sorted order:
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+    Height becomes n, so you may traverse all nodes.
+    
+    Space Complexity
+
+This implementation is recursive, so the call stack uses space proportional to the tree height.
+
+Average case: O(log n)
+Worst case: O(n)
+
+For:
+search_BST()
+Time Complexity
+
+Again, you move down only one path (left or right).
+
+Best case: O(1)
+Value is at the root.
+Average case (balanced BST): O(log n)
+Worst case (skewed BST): O(n)
+Space Complexity
+
+Recursive calls consume stack space equal to the tree height.
+
+Average case: O(log n)
+Worst case: O(n)
+
+General Rule
+
+For both operations:
+
+Tree Type	    Height (h)	Time Complexity	    Space Complexity
+Balanced BST	O(log n)	O(log n)	        O(log n)
+Skewed BST	    O(n)	    O(n)	            O(n)
+
+"""
 
     
