@@ -1,4 +1,5 @@
 # A simple tree where a node can have any number of childs
+from __future__ import annotations
 from typing import Any, List, Dict 
 
 
@@ -8,7 +9,7 @@ class TreeNode:
         self.children = []  # List of child nodes 
         
         
-    def add_child(self, child_node: "TreeNode"):
+    def add_child(self, child_node: TreeNode):
         """Adds a child to this node"""
         self.children.append(child_node)
         
