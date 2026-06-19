@@ -9,6 +9,37 @@ def max_depth(root):
 
 
 """
+        1 (returns 3)
+       / \
+      2   3
+   (2)   (1)
+     /
+    4
+   (1)
+   
+   
+max_depth(1)
+│
+├── max_depth(2)
+│   │
+│   ├── max_depth(4)
+│   │   ├── max_depth(None) → 0
+│   │   └── max_depth(None) → 0
+│   │
+│   └── returns 1
+│
+│   ├── max_depth(None) → 0
+│   └── returns 2
+│
+├── max_depth(3)
+│   ├── max_depth(None) → 0
+│   └── max_depth(None) → 0
+│
+└── returns 1
+
+returns 3
+
+
 Complexity
 
 Time: O(n)
