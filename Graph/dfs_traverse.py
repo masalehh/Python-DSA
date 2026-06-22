@@ -1,15 +1,43 @@
-from typing import  List, Dict, TypeVar, Set 
+from typing import TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
-def dfs_traverse(start: T, graph: Dict[T, List[T]]) -> None: 
-    visited: Set[T] = set() 
+def dfs(start: T, graph: dict[T, list[T]]) -> None:
+    """
+    Perform Depth First Search traversal starting from start node.
+
+    Args:
+        start: Starting node
+        graph: Adjacency list representation of graph
+    """
+    visited: set[T] = set()
     
-    def dfs_helper(node: T) -> None:
+    def dfs_helper(node: T):
         visited.add(node)
-        print(node)
         
         for neighbor in graph[node]:
-            if neighbor not in visited:
+            if neighbor not in visited: 
                 dfs_helper(neighbor)
-    dfs_helper(start)  
+                
+    dfs_helper(start) 
+        
+# Graph:
+#
+#        A
+#       / \
+#      B   C
+#     / \   \
+#    D   E   F
+#
+# DFS Traversal:
+# A -> B -> D -> E -> C -> F
+
+# graph = {
+#     "A": ["B", "C"],
+#     "B": ["D", "E"],
+#     "C": ["F"],
+#     "D": [],
+#     "E": [],
+#     "F": []
+
+
